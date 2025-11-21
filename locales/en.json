@@ -1,0 +1,22 @@
+{
+  "app_title": "🎹 Where Winds Meet - MIDI Bridge",
+  "separator": "-----------------------------------",
+  "filtered_selection": "Filtered by '{filter}'. Selected port: {port}",
+  "available_ports": "Available MIDI ports:",
+  "no_ports_found": "No MIDI output ports found.",
+  "enter_port_number": "Enter port number: ",
+  "invalid_port_number": "Invalid number. Enter a number from 0 to {max_val}.",
+  "error_enter_number": "Please enter a number.",
+  "press_enter_to_exit": "Press Enter to exit...",
+  "connected_to": "🚀 Connected to: {port_name}",
+  "press_ctrl_c_to_stop": "Press Ctrl+C to stop.",
+  "ready_to_receive": "Ready to receive notes.",
+  "program_stopped": "Program stopped.",
+  "error_occurred": "An error occurred: {error}",
+  "select_language_prompt": "Please select a language:",
+  "select_language_choice": "Enter number (1-{count}): ",
+  "invalid_selection": "Invalid selection. Please try again.",
+  "invalid_input_number": "Invalid input. Please enter a number.",  "error_pressing_key": "Error pressing key {key}: {error}",
+  "received_note": "Received note: {note}; Mapped to: {key}",
+  "unmapped_note": "Unmapped note: {note}"
+}
