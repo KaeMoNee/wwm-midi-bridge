@@ -1,0 +1,39 @@
+name: Build and Release on Windows
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers the workflow on tags like v1.0, v2.3.4, etc.
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build with PyInstaller
+        # This uses your specific command with locales, hidden imports, and UAC admin
+        run: |
+          pyinstaller --noconfirm --onefile --console --uac-admin --name "WWM-Midi-Bridge" --hidden-import="mido.backends.rtmidi" --add-data "locales;locales" main.py
+
+      - name: Create Release and Upload Asset
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: dist/WWM-Midi-Bridge.exe
+          generate_release_notes: true
