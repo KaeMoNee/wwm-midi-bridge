@@ -15,7 +15,7 @@ This project uses PyInstaller to create a standalone Windows executable (.exe).
 Run the following command in your terminal from the project root directory. This command tells PyInstaller to include the `locales` folder, requests Admin rights, names the file "WWM-Midi-Bridge", and **fixes the missing MIDI backend error**.
 
 ```shell
-pyinstaller --noconfirm --onefile --console --uac-admin --name "WWM-Midi-Bridge" --hidden-import="mido.backends.rtmidi" --add-data "locales;locales" main.py
+pyinstaller --noconfirm --onefile --console --uac-admin --icon="assets/icon.ico" --add-data "assets/icon.ico;assets" --name "WWM-Midi-Bridge" --hidden-import="mido.backends.rtmidi" --add-data "locales;locales" main.py
 ```
 
 
@@ -28,6 +28,7 @@ pyinstaller --noconfirm --onefile --console --uac-admin --name "WWM-Midi-Bridge"
 *   `--onefile`: Bundle everything into a single `.exe` file for easy distribution.
 *   `--console`: The application will open with a console window. This is necessary for our text-based UI.
 *   `--add-data "locales;locales"`: This is the crucial part for internationalization. It copies the `locales` directory and all its contents into the build, ensuring the .json language files are available to the executable at runtime. The syntax is `source;destination_in_bundle`.
+*   `--icon="assets/icon.ico"`: Sets the application icon.
 
 ## Output
 
