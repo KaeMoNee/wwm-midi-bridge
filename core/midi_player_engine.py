@@ -134,9 +134,7 @@ class MidiPlayerEngine:
                     # Check if the note is in mapping
                     if str(target_note) in mapping:
                         key_char = mapping[str(target_note)]
-                        keyboard.press(key_char)
-                        time.sleep(0.02)
-                        keyboard.release(key_char)
+                        keyboard.press_and_release(key_char)
 
         except Exception as e:
             print(f"Error playing midi: {e}")
