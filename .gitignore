@@ -3,6 +3,13 @@ __pycache__/
 *$py.class
 .env
 .vscode/
+
+# build specific
 *.spec
 dist
 build
+
+# config should be defined per user, no need to hold it here
+config.json
+
+*-logs.txt

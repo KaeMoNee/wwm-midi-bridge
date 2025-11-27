@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6.1.0
         with:
           python-version: '3.13'
 
@@ -27,12 +27,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build with PyInstaller
-        # This uses your specific command with locales, hidden imports, and UAC admin
         run: |
-          pyinstaller --noconfirm --onefile --console --uac-admin --name "WWM-Midi-Bridge" --hidden-import="mido.backends.rtmidi" --add-data "locales;locales" main.py
+          pyinstaller --noconfirm --onefile --noconsole --uac-admin --icon="assets/icon.ico" --add-data "assets;assets" --name "WWM-Midi-Bridge" --hidden-import="mido.backends.rtmidi" --add-data "locales;locales" main.py
 
       - name: Create Release and Upload Asset
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2.4.2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: dist/WWM-Midi-Bridge.exe
