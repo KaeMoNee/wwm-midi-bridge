@@ -7,7 +7,7 @@ from core import logger, i18n
 CONFIG_FILE = 'config.json'
 REPO_URL = "https://github.com/KaeMoNee/wwm-midi-bridge"
 REPO_RELEASE_CHECK_URL = "https://api.github.com/repos/KaeMoNee/wwm-midi-bridge/releases/latest"
-VERSION = "2.0.0"
+VERSION = "2.0.1"
 
 class Config:
     def __init__(self):
